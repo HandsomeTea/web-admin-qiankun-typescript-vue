@@ -1,0 +1,15 @@
+{
+    "SUCCESS": "success",
+    "FAILED": "failed",
+    "URL_NOT_FOUND": "api address is not found",
+    "INTERNAL_SERVER_ERROR": "server inner error",
+    "BAD_REQUEST": "bad request",
+    "FORBIDDEN": "forbidden",
+    "NOT_FOUND": "object is not found",
+    "TOO_MANY_REQUESTS": "too many request",
+    "INVALID_ARGUMENTS": "invalid arguments",
+    "USER_SAVE_FAILED": "user save failed",
+    "yes": "yes",
+    "cancel": "cancel",
+    "it_is_illegal": "it is illegal"
+}
