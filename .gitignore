@@ -104,4 +104,8 @@ dist
 .tern-port
 
 # custom
+moduleA/node_modules
+moduleA/dist
+moduleB/node_modules
+moduleB/dist
 mark.txt

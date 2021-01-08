@@ -15,11 +15,17 @@ export default class ModuleB extends Vue {
         // console.log('hasb', document.getElementById('appB'));
         this.instance = loadMicroApp({
             name: 'moduleB',
-            entry: `${window.location.origin}/module/moduleb/`,
+            entry: '/module/moduleb/index',
             container: '#eleModuleb',
             props: {}
         });
-        start();
+        this.instance.mountPromise.then(() => {
+            start();
+            console.log('b status', this.instance?.getStatus());
+        }).catch(e => {
+            console.log('b error', e);
+        });
+
     }
 
     destroyed(): void {

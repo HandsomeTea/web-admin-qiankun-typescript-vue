@@ -20,6 +20,7 @@ Vue.config.warnHandler = (msg: string /*, vm, trace*/) => {
 let instance = null;
 
 const render = (props?: { container: HTMLElement }) => {
+    console.log('will render b');
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     if (!instance) {
@@ -29,6 +30,7 @@ const render = (props?: { container: HTMLElement }) => {
             i18n,
             render: h => h(view)
         }).$mount(props?.container ? props?.container.querySelector('#appB') || '#appB' : '#appB');
+        console.log('render b completed');
     }
 };
 
@@ -37,14 +39,16 @@ if (process?.env?.NODE_ENV === 'development') {
 }
 
 export async function bootstrap(): Promise<void> {
-    //
+    console.log('b', 'bootstrap');
 }
 
 export async function mount(props: { container: HTMLElement }): Promise<void> {
+    console.log('b', 'mount');
     render(props);
 }
 
 export async function unmount(): Promise<void> {
+    console.log('b', 'unmount');
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     instance.$destroy();

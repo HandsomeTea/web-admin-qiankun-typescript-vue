@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import Vue from 'vue';
 import { Route } from 'vue-router';
-// import { registerMicroApps } from 'qiankun';
+// import { registerMicroApps, start } from 'qiankun';
 import store from './store';
 import router from './router';
 import i18n from './lang';
@@ -129,12 +129,13 @@ new Vue({
 
 // registerMicroApps([{
 //     name: 'moduleA',
-//     entry: `${window.location.origin}/module/modulea/`,
+//     entry: '/module/modulea/',
 //     container: '#eleModulea',
 //     activeRule: '/modulea'
 // }, {
 //     name: 'moduleB',
-//     entry: `${window.location.origin}/module/moduleb/`,
+//     entry: '/module/moduleb/',
 //     container: '#eleModuleb',
 //     activeRule: '/moduleb'
 // }]);
+// start();

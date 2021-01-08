@@ -86,8 +86,12 @@ module.exports = merge(common, {
         open: true,
         overlay: true, //编译运行时的错误直接显示在浏览器
         proxy: [{
-            context: ['/tests'],
-            target: 'http://localhost:3000',
+            context: ['/module/modulea'],
+            target: 'http://localhost:9004/module/modulea',
+            secure: false
+        }, {
+            context: ['/module/moduleb'],
+            target: 'http://localhost:9004/module/moduleb',
             secure: false
         }
             // , {

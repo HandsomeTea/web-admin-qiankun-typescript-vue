@@ -15,11 +15,16 @@ export default class ModuleA extends Vue {
         // console.log('hasa', document.getElementById('appA'));
         this.instance = loadMicroApp({
             name: 'moduleA',
-            entry: `${window.location.origin}/module/modulea/`,
+            entry: '/module/modulea/index',
             container: '#eleModulea',
             props: {}
         });
-        start();
+        this.instance.mountPromise.then(() => {
+            start();
+            console.log('a status', this.instance?.getStatus());
+        }).catch(e => {
+            console.log('a error', e);
+        });
     }
 
     destroyed(): void {

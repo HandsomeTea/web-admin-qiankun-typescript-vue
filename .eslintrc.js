@@ -37,7 +37,7 @@ module.exports = {
         semi: ['error', 'always'], // 分号结尾
         '@typescript-eslint/semi': ['error', 'always'],
         'no-multiple-empty-lines': [2, { max: 2 }], // 最大空行2
-        'no-console': 2, //不能使用console
+        // 'no-console': 2, //不能使用console
         'no-constant-condition': 2, // 禁止在条件中使用常量表达式 if(true) if(1)
         'no-extra-parens': 2, //禁止非必要的括号
         'no-extra-semi': 2, //禁止多余的冒号

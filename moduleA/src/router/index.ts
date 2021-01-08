@@ -14,7 +14,7 @@ const routes: Array<RouteConfig> = [{
 }];
 
 const route = new VueRouter({
-    ...process?.env?.NODE_ENV !== 'development' ? { base: '/module/modulea/' } : {},
+    ...process?.env?.NODE_ENV === 'development' ? {} : { base: '/module/modulea/' },
     mode: process?.env?.NODE_ENV === 'development' ? 'hash' : 'history',
     routes
 });
