@@ -77,7 +77,8 @@ module.exports = merge(common, {
         host: 'localhost', //'0.0.0.0',
         index: 'index.html',
         headers: {
-            'X-Custom-Foo': 'bar'
+            'X-Custom-Foo': 'bar',
+            'Access-Control-Allow-Origin': '*'
         },
         // https: true,
         // inline: true,
@@ -87,11 +88,11 @@ module.exports = merge(common, {
         overlay: true, //编译运行时的错误直接显示在浏览器
         proxy: [{
             context: ['/module/modulea'],
-            target: 'http://localhost:9004/module/modulea',
+            target: 'http://localhost:8091',
             secure: false
         }, {
             context: ['/module/moduleb'],
-            target: 'http://localhost:9004/module/moduleb',
+            target: 'http://localhost:8092',
             secure: false
         }
             // , {

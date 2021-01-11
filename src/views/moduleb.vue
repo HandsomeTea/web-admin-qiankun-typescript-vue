@@ -14,7 +14,7 @@ export default class ModuleB extends Vue {
         // console.log('hasb', document.getElementById('appB'));
         this.instance = loadMicroApp({
             name: 'web-admin-qiankun-typescript-vue-b',
-            entry: '/module/moduleb/index',
+            entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8092' : '/module/moduleb/index',
             container: '#eleModuleb',
             props: {}
         });

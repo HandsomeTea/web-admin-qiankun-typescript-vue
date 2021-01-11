@@ -14,7 +14,7 @@ export default class ModuleA extends Vue {
         // console.log('hasa', document.getElementById('appA'));
         this.instance = loadMicroApp({
             name: 'web-admin-qiankun-typescript-vue-a',
-            entry: '/module/modulea/index',
+            entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8091' : '/module/modulea/index',
             container: '#eleModulea',
             props: {}
         });
