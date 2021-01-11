@@ -128,13 +128,13 @@ new Vue({
 // }
 
 // registerMicroApps([{
-//     name: 'moduleA',
-//     entry: '/module/modulea/',
+//     name: 'web-admin-qiankun-typescript-vue-a',
+//     entry: '/module/modulea/index',
 //     container: '#eleModulea',
 //     activeRule: '/modulea'
 // }, {
-//     name: 'moduleB',
-//     entry: '/module/moduleb/',
+//     name: 'web-admin-qiankun-typescript-vue-b',
+//     entry: '/module/moduleb/index',
 //     container: '#eleModuleb',
 //     activeRule: '/moduleb'
 // }]);

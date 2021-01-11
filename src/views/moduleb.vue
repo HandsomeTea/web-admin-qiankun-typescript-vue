@@ -5,7 +5,6 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { start, loadMicroApp, MicroApp } from 'qiankun';
-// import { start } from 'qiankun';
 
 @Component
 export default class ModuleB extends Vue {
@@ -14,7 +13,7 @@ export default class ModuleB extends Vue {
     mounted(): void {
         // console.log('hasb', document.getElementById('appB'));
         this.instance = loadMicroApp({
-            name: 'moduleB',
+            name: 'web-admin-qiankun-typescript-vue-b',
             entry: '/module/moduleb/index',
             container: '#eleModuleb',
             props: {}
