@@ -11,16 +11,14 @@ export default class ModuleA extends Vue {
     private instance: null | MicroApp = null;
 
     mounted(): void {
-        // console.log('hasa', document.getElementById('appA'));
         this.instance = loadMicroApp({
-            name: 'web-admin-qiankun-typescript-vue-a',
+            name: 'modulea',
             entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8091' : '/module/modulea/index',
             container: '#eleModulea',
             props: {}
         });
         this.instance.mountPromise.then(() => {
             start();
-            console.log('a status', this.instance?.getStatus());
         }).catch(e => {
             console.log('a error', e);
         });

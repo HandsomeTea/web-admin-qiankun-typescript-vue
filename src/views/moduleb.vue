@@ -11,20 +11,17 @@ export default class ModuleB extends Vue {
     private instance: null | MicroApp = null;
 
     mounted(): void {
-        // console.log('hasb', document.getElementById('appB'));
         this.instance = loadMicroApp({
-            name: 'web-admin-qiankun-typescript-vue-b',
+            name: 'moduleb',
             entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8092' : '/module/moduleb/index',
             container: '#eleModuleb',
             props: {}
         });
         this.instance.mountPromise.then(() => {
             start();
-            console.log('b status', this.instance?.getStatus());
         }).catch(e => {
             console.log('b error', e);
         });
-
     }
 
     destroyed(): void {
