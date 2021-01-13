@@ -13,14 +13,15 @@ export default class ModuleB extends Vue {
     mounted(): void {
         this.instance = loadMicroApp({
             name: 'moduleb',
-            entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8092' : '/module/moduleb/index',
+            entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8092/#/moduleb' : '/module/moduleb/index',
             container: '#eleModuleb',
             props: {}
         });
         this.instance.mountPromise.then(() => {
             start();
         }).catch(e => {
-            console.log('b error', e);
+            // eslint-disable-next-line no-console
+            console.log(e);
         });
     }
 

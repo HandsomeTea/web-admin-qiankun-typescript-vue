@@ -76,33 +76,13 @@ module.exports = merge(common, {
         port: 9003,
         host: 'localhost', //'0.0.0.0',
         index: 'index.html',
-        headers: {
-            'X-Custom-Foo': 'bar',
-            'Access-Control-Allow-Origin': '*'
-        },
-        // https: true,
-        // inline: true,
-        // lazy: false,
-        // noInfo: true,
+        headers: {},
         open: true,
         overlay: true, //编译运行时的错误直接显示在浏览器
         proxy: [{
-            context: ['/module/modulea'],
-            target: 'http://localhost:8091',
+            context: ['/api'],
+            target: 'http://localhost:8088',
             secure: false
-        }, {
-            context: ['/module/moduleb'],
-            target: 'http://localhost:8092',
-            secure: false
-        }
-            // , {
-            //     context: () => true,
-            //     target: 'https://surpass-dev.bizconf.cn/',
-            //     secure: false,
-            //     changeOrigin: true
-            // }
-        ]
-        // quiet: false,
-        // useLocalIp: true
+        }]
     }
 });

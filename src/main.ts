@@ -1,7 +1,6 @@
 import 'babel-polyfill';
 import Vue from 'vue';
 import { Route } from 'vue-router';
-// import { registerMicroApps, start } from 'qiankun';
 import store from './store';
 import router from './router';
 import i18n from './lang';
@@ -62,80 +61,3 @@ new Vue({
         }
     }
 }).$mount('#app');
-
-// // 非开发环境下，即服务器环境(生产/测试环境)下才执行
-// if (process?.env?.NODE_ENV !== 'development') {
-//     const getRootData = {
-//         data: { auth: false },
-//         fns: [{
-//             name: '_LOGIN',
-//             _LOGIN(data: any) {
-//                 console.log(`父应用返回信息${data}`);
-//             }
-//         }]
-//     };
-
-//     let ModuleHtmlText = '';
-//     let ModuleIsLoading = false;
-//     const render = (props: { appContent: string, loading: boolean }) => {
-//         console.log(props);
-//         ModuleHtmlText = props.appContent;
-//         ModuleIsLoading = props.loading;
-//     };
-
-//     registerMicroApps([
-//         {
-//             name: 'moduleA',
-//             entry: '/module/modulea/',
-//             container: '#eleModulea',
-//             render,
-//             activeRule: (location) => {
-//                 return location.href.includes('/modulea');
-//             },
-//             props: getRootData
-//         },
-//         {
-//             name: 'moduleB',
-//             entry: '/module/moduleb/',
-//             container: '#eleModuleb',
-//             render,
-//             activeRule: (location) => {
-//                 return location.href.includes('/moduleb');
-//             },
-//             props: getRootData
-//         }], {
-//         // beforeLoad: [
-//         //     app => {
-//         //         console.log('before load', app);
-//         //     }
-//         // ], // 挂载前回调
-//         // beforeMount: [
-//         //     app => {
-//         //         console.log('before mount', app);
-//         //     }
-//         // ], // 挂载后回调
-//         // afterUnmount: [
-//         //     app => {
-//         //         console.log('after unload', app);
-//         //     }
-//         // ] // 卸载后回调
-//     });
-
-//     // setDefaultMountApp('/index');
-
-//     // 启动
-//     // start();
-// }
-
-// registerMicroApps([{
-//     name: 'web-admin-qiankun-typescript-vue-a',
-//     entry: '/module/modulea/index',
-//     container: '#eleModulea',
-//     activeRule: '/modulea'
-// }, {
-//     name: 'web-admin-qiankun-typescript-vue-b',
-//     entry: '/module/moduleb/index',
-//     container: '#eleModuleb',
-//     activeRule: '/moduleb'
-// }]);
-// start();
