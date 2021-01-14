@@ -5,10 +5,31 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { start, loadMicroApp, MicroApp } from 'qiankun';
+import { Action, State } from 'vuex-class';
+import { setLanguageAction } from '../store/stateModel';
 
 @Component
 export default class ModuleB extends Vue {
     private instance: null | MicroApp = null;
+
+    @Action('setLanguage') setLang: setLanguageAction;
+    @State('language') lang: string;
+
+    private get language() {
+        return this.lang;
+    }
+
+    private timer: null | number = null;
+
+    created(): void {
+        this.timer = window.setInterval(() => {
+            if (this.language === 'zh') {
+                this.setLang('en');
+            } else {
+                this.setLang('zh');
+            }
+        }, 3000);
+    }
 
     mounted(): void {
         this.instance = loadMicroApp({
@@ -27,6 +48,9 @@ export default class ModuleB extends Vue {
 
     destroyed(): void {
         this.instance?.unmount();
+        if (this.timer) {
+            clearInterval(this.timer);
+        }
     }
 }
 </script>

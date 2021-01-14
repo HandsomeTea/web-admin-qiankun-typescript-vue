@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import Vue from 'vue';
 import { Route } from 'vue-router';
+import { initGlobalState } from 'qiankun';
 import store from './store';
 import router from './router';
 import i18n from './lang';
@@ -18,6 +19,9 @@ Vue.config.warnHandler = (msg: string /*, vm, trace*/) => {
 };
 
 new Vue({
+    data: {
+        toModuleParams: initGlobalState({ platform: '', lang: '', action: '' })
+    },
     router,
     store,
     i18n,
@@ -29,15 +33,22 @@ new Vue({
             }
         },
         lang() {
-            if (this.$i18n.locale !== this.lang) {
-                this.$i18n.locale = this.lang;
-            }
+            this.$i18n.locale = this.lang;
+            this.toModuleParams.setGlobalState({ lang: this.lang });
+        },
+        platform() {
+            this.toModuleParams.setGlobalState({ platform: this.platform });
         }
     },
     created() {
         store.dispatch('setScreenType');
+        this.toModuleParams.onGlobalStateChange((state: Record<string, unknown>) => {
+            // eslint-disable-next-line no-console
+            console.log('主应用监听全局通信变化', state);
+        });
     },
     mounted() {
+        this.toModuleParams = initGlobalState({ platform: this.platform, lang: this.lang, action: '' });
         let waitForResizeEndTimer: null | number = null;
 
         window.onresize = () => {
@@ -58,6 +69,9 @@ new Vue({
     computed: {
         lang() {
             return store.state.language;
+        },
+        platform() {
+            return store.state.screenType;
         }
     }
 }).$mount('#app');

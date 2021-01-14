@@ -27,6 +27,7 @@ export default class ModuleA extends Vue {
 
     destroyed(): void {
         this.instance?.unmount();
+        this.instance = null;
     }
 }
 </script>
