@@ -32,12 +32,19 @@ export default class ModuleB extends Vue {
     }
 
     mounted(): void {
+        // 初始化时传给子服务的数据
+        const props: ModuleParams = {
+            platform: 'pc',
+            lang: 'zh-cn'
+        };
+
         this.instance = loadMicroApp({
             name: 'moduleb',
             entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8092/#/moduleb' : '/module/moduleb/index',
             container: '#eleModuleb',
-            props: {}
+            props: props as unknown as Record<string, unknown>
         });
+
         this.instance.mountPromise.then(() => {
             start();
         }).catch(e => {

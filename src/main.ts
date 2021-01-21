@@ -20,35 +20,17 @@ Vue.config.warnHandler = (msg: string /*, vm, trace*/) => {
 
 new Vue({
     data: {
-        toModuleParams: initGlobalState({ platform: '', lang: '', action: '' })
+        toModuleParams: initGlobalState()
     },
     router,
     store,
     i18n,
     render: h => h(view),
-    watch: {
-        $route(to: Route /*, from*/) {
-            if (to.meta.title) {
-                document.title = `elementUI — ${to.meta.title}`;
-            }
-        },
-        lang() {
-            this.$i18n.locale = this.lang;
-            this.toModuleParams.setGlobalState({ lang: this.lang });
-        },
-        platform() {
-            this.toModuleParams.setGlobalState({ platform: this.platform });
-        }
-    },
     created() {
+        this.toModuleParams = initGlobalState({ platform: '', lang: '', action: '' });
         store.dispatch('setScreenType');
-        this.toModuleParams.onGlobalStateChange((state: Record<string, unknown>) => {
-            // eslint-disable-next-line no-console
-            console.log('主应用监听全局通信变化', state);
-        });
     },
     mounted() {
-        this.toModuleParams = initGlobalState({ platform: this.platform, lang: this.lang, action: '' });
         let waitForResizeEndTimer: null | number = null;
 
         window.onresize = () => {
@@ -65,6 +47,11 @@ new Vue({
                 }, waitTime);
             }
         };
+
+        this.toModuleParams.onGlobalStateChange((state: Record<string, unknown>) => {
+            // eslint-disable-next-line no-console
+            console.log('主应用监听全局通信变化', state);
+        });
     },
     computed: {
         lang() {
@@ -72,6 +59,20 @@ new Vue({
         },
         platform() {
             return store.state.screenType;
+        }
+    },
+    watch: {
+        $route(to: Route /*, from*/) {
+            if (to.meta.title) {
+                document.title = `elementUI — ${to.meta.title}`;
+            }
+        },
+        lang() {
+            this.$i18n.locale = this.lang;
+            this.toModuleParams.setGlobalState({ lang: this.lang });
+        },
+        platform() {
+            this.toModuleParams.setGlobalState({ platform: this.platform });
         }
     }
 }).$mount('#app');

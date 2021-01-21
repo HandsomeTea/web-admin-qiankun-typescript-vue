@@ -20,3 +20,8 @@ declare interface apiResult {
     data?: any; // eslint-disable-line @typescript-eslint/no-explicit-any
     error?: httpException;
 }
+
+interface ModuleParams {
+    platform: 'phone' | 'ipad' | 'spc' | 'pc'
+    lang: 'zh-cn' | 'zh-tw' | 'en'
+}

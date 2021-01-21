@@ -24,7 +24,8 @@ module.exports = {
         window: true,
         httpException: true,
         httpArgument: true,
-        apiResult: true
+        apiResult: true,
+        ModuleParams: true
     },
     rules: {
         '@typescript-eslint/no-explicit-any': 2, // 是否允许声明any类型
