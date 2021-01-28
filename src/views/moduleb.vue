@@ -40,7 +40,7 @@ export default class ModuleB extends Vue {
 
         this.instance = loadMicroApp({
             name: 'moduleb',
-            entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8092/#/moduleb' : '/module/moduleb/index',
+            entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8092/#/moduleb' : '/myconsole/module/moduleb/index',
             container: '#eleModuleb',
             props: props as unknown as Record<string, unknown>
         });

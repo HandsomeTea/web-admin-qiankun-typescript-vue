@@ -20,6 +20,7 @@ const routes: Array<RouteConfig> = [{
 }];
 
 const route = new VueRouter({
+    ...process?.env?.NODE_ENV === 'development' ? {} : { base: '/myconsole/' },
     mode: process?.env?.NODE_ENV === 'development' ? 'hash' : 'history',
     routes
 });

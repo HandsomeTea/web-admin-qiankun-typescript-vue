@@ -16,8 +16,8 @@ module.exports = merge(common, {
     devtool: 'source-map',
     stats: 'errors-only',
     output: {
-        filename: 'javascript/[hash:20][id].js'
-        // filename: 'javascript/[name].js'
+        filename: isTestBuild ? 'javascript/[name].js' : 'javascript/[hash:20][id].js',
+        publicPath: '/myconsole/'
     },
     optimization: {
         concatenateModules: true
@@ -76,8 +76,8 @@ module.exports = merge(common, {
                 options: {
                     esModule: false,
                     outputPath: 'image',
-                    publicPath: '../image',
-                    name: '[hash:20].[ext]'
+                    publicPath: '../myconsole/image',
+                    name: isTestBuild ? '[name].[ext]' : '[hash:20].[ext]'
                 }
             }]
         }, {
