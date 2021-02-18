@@ -19,7 +19,7 @@ export default class ModuleA extends Vue {
 
         this.instance = loadMicroApp({
             name: 'modulea',
-            entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8091/#/modulea' : '/myconsole/module/modulea/index',
+            entry: process?.env?.NODE_ENV === 'development' ? 'http://localhost:8091/#/modulea-router' : '/test/myconsole/module/modulea/modulea-router',
             container: '#eleModulea',
             props: props as unknown as Record<string, unknown>
         });

@@ -14,11 +14,11 @@
                 <i class="el-icon-menu"></i>
                 <span slot="title">首页</span>
             </el-menu-item>
-            <el-menu-item index="2" @click="redirect('/modulea')">
+            <el-menu-item index="2" @click="redirect('/modulea-router')">
                 <i class="el-icon-menu"></i>
                 <span slot="title">moduleA</span>
             </el-menu-item>
-            <el-menu-item index="3" @click="redirect('/moduleb')">
+            <el-menu-item index="3" @click="redirect('/moduleb-router')">
                 <i class="el-icon-setting"></i>
                 <span slot="title">moduleB</span>
             </el-menu-item>

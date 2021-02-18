@@ -11,16 +11,16 @@ const routes: Array<RouteConfig> = [{
         path: '/index',
         component: () => import(/* webpackChunkName: 'home' */ '../views/home.vue')
     }, {
-        path: '/modulea',
+        path: '/modulea-router',
         component: () => import(/* webpackChunkName: 'modulea' */ '../views/modulea.vue')
     }, {
-        path: '/moduleb',
+        path: '/moduleb-router',
         component: () => import(/* webpackChunkName: 'moduleb' */ '../views/moduleb.vue')
     }]
 }];
 
 const route = new VueRouter({
-    ...process?.env?.NODE_ENV === 'development' ? {} : { base: '/myconsole/' },
+    ...process?.env?.NODE_ENV === 'development' ? {} : { base: '' },
     mode: process?.env?.NODE_ENV === 'development' ? 'hash' : 'history',
     routes
 });
